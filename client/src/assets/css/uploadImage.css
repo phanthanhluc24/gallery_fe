@@ -1,0 +1,30 @@
+.profile-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3498db; /* Set your desired background color */
+    border-radius: 50%; /* Make it circular */
+    width: 50px; /* Set your desired width */
+    height: 50px; /* Set your desired height */
+    cursor: pointer;
+  }
+  
+  .upload-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Set your desired text color */
+  }
+  
+  /* Add hover effect if needed */
+  .upload:hover {
+    background-color: #2980b9; /* Change the background color on hover */
+  }
+  

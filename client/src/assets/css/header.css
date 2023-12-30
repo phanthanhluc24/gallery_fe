@@ -1,0 +1,96 @@
+
+img {
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(218,220,224)
+}
+
+.logo p {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    background: linear-gradient(to right, red 20%, cornflowerblue 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.search-bar{
+    width: 50%;
+}
+.searchTerm {
+    width: 100%;
+    border: 3px solid #394867;
+    border-right: none;
+    padding: 5px;
+    height: 3rem;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+}
+
+.searchTerm:focus{
+    color: #394867;
+}
+
+.searchButton {
+    width: 40px;
+    height: 3rem;
+    border: 1px solid #394867;
+    background: #394867;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.logout{
+    border-radius: 10px;
+    padding: 10px;
+}
+.logout:hover{
+    background-color: #F1F6F9;
+}
+
+.logout-button , .search-bar,.profile-logout-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.profile-logout-bar div, .logout-button p{
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+
+.profile p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: orangered;
+    color: #fff;
+    font-weight: bold;
+}

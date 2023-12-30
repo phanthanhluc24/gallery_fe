@@ -2,6 +2,7 @@ import React from 'react'
 import { Login } from '../components/auth/Login'
 import { Register } from '../components/auth/Register'
 import { Home } from '../components/home/Home'
+import { UploadImage } from '../components/home/UploadImage'
 
 export const Index = () => [
     {
@@ -14,6 +15,12 @@ export const Index = () => [
     },
     {
         path:"/gallery",
-        element:<Home/>
+        element:<Home/>,
+        children:[
+            {
+                path:"/gallery",
+                element:<UploadImage/>
+            }
+        ]
     }
 ]
