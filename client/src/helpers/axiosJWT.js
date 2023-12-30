@@ -32,7 +32,7 @@ axiosJWT.interceptors.response.use(
             originalRequest._retry=true
             try {
                 await refreshTokenApi()
-                .then(()=>{
+                .then((res)=>{
                     console.log("refreshToken successfully");
                 })
                 .catch((error)=>{
