@@ -28,3 +28,33 @@
     background-color: #2980b9; /* Change the background color on hover */
   }
   
+.container .row{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.container .row .col-md-4{
+    border: 1px solid rgb(245, 141, 141);
+    border-radius: 10px;
+}
+
+.container .row .col-md-4 span{
+    display: flex;
+    justify-content:flex-start;
+    padding: 5px;
+    background-color: rgb(245, 141, 141);
+    border-radius: 10px 10px 0px 0px;
+    
+}
+.action-with-image{
+    width: 150;
+    height: 100;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+.action-with-image div{
+    padding: 5px;
+    cursor: pointer;
+}
