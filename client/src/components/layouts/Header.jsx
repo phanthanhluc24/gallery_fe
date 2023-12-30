@@ -10,7 +10,6 @@ export const Header = () => {
     useEffect(()=>{
         currentUserApi(token)
         .then((res)=>{
-            console.log(res);
             setFullName(res.name)
         })
         .catch((error)=>{
@@ -19,7 +18,7 @@ export const Header = () => {
     },[token])
 
     const handleLogout=()=>{
-        
+
     }
   return (
     <>

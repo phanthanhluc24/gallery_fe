@@ -29,11 +29,14 @@
 
 }
 .layout-content {
-    /* z-index: -1; */
-    /* position: absolute; */
-    /* left: 15%; */
-    /* top: 8%;
-    padding: 10px; */
+    /* margin-left:220px;
+    padding-top: 60px; */
+    /* z-index: 1; */
+    position: absolute;
+    left: 15%;
+    top: 8%;
+    padding: 10px;
+    
 }
 .layout-content p{
     font-size: 30px;

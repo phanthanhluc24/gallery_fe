@@ -33,11 +33,13 @@ axiosJWT.interceptors.response.use(
             try {
                 await refreshTokenApi()
                 .then((res)=>{
+                    originalRequest.headers["Authorization"]=`Bearer ${res.newAccessToken}`
                     console.log("refreshToken successfully");
                 })
                 .catch((error)=>{
                     console.error(error);
                 })
+                return axiosJWT(originalRequest)
             } catch (error) {
                 console.error("Error refresh token: ",error);
                 return Promise.reject(error)

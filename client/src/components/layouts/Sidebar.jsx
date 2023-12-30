@@ -10,19 +10,19 @@ export const Sidebar = () => {
     <div className="side-bar">
               <div className={`side-bar-item ${location.pathname=="/gallery" ? "side-bar-item-background":""}`}>
                   <FontAwesomeIcon icon={faImage} />
-                  <Link to={"#"}>Photos</Link>
+                  <Link to={"/gallery"}>Photos</Link>
               </div>
               <div className="side-bar-item">
                   <FontAwesomeIcon icon={faStar} />
                   <Link to={"#"}>Favorites</Link>
               </div>
-              <div className="side-bar-item">
+              <div className={`side-bar-item ${location.pathname=="/gallery/album" ? "side-bar-item-background":""}`}>
                   <FontAwesomeIcon icon={faPhotoFilm} />
-                  <Link to={"#"}>Albums</Link>
+                  <Link to={"/gallery/album"}>Albums</Link>
               </div>
-              <div className="side-bar-item">
+              <div className={`side-bar-item ${location.pathname=="/gallery/trash" ? "side-bar-item-background":""}`}>
                   <FontAwesomeIcon icon={faTrash} />
-                  <Link to={"#"}>Trash</Link>
+                  <Link to={"/gallery/trash"}>Trash</Link>
               </div>
           </div>
 
