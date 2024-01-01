@@ -16,7 +16,7 @@ export const Sidebar = () => {
                   <FontAwesomeIcon icon={faStar} />
                   <Link to={"#"}>Favorites</Link>
               </div>
-              <div className={`side-bar-item ${location.pathname=="/gallery/album" ? "side-bar-item-background":""}`}>
+              <div className={`side-bar-item ${location.pathname=="/gallery/album" ||location.pathname === "/gallery/album/:folder/:id" ? "side-bar-item-background":""}`}>
                   <FontAwesomeIcon icon={faPhotoFilm} />
                   <Link to={"/gallery/album"}>Albums</Link>
               </div>

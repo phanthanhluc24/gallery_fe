@@ -4,9 +4,13 @@ import {faMagnifyingGlass, faSignOutAlt} from "@fortawesome/free-solid-svg-icons
 import "../../assets/css/header.css"
 import { currentUserApi } from '../../apis/currentUser.api';
 import Cookies from 'js-cookie';
+import { logoutApi } from '../../apis/logout.api';
+import { toast } from "react-toastify"
+import {useNavigate} from "react-router-dom"
 export const Header = () => {
     const token=Cookies.get("access-token");
     const [fullName,setFullName]=useState("")
+    const navigate=useNavigate()
     useEffect(()=>{
         currentUserApi(token)
         .then((res)=>{
@@ -18,7 +22,14 @@ export const Header = () => {
     },[token])
 
     const handleLogout=()=>{
-
+       logoutApi(token)
+       .then((res)=>{
+            toast.success(res.message)
+            navigate("/")
+       })
+       .catch((error)=>{
+        console.log(error);
+       })
     }
   return (
     <>

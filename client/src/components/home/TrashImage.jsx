@@ -5,24 +5,27 @@ import { faTrash, faUndo } from "@fortawesome/free-solid-svg-icons";
 import { deleteUploadImageApi } from '../../apis/deleteUploadImage.api';
 import { ContextMenu, ContextMenuTrigger, MenuItem } from 'react-contextmenu';
 import { URL_API } from '../../helpers/URL_API';
+import { toast } from "react-toastify"
+import Cookies from 'js-cookie';
 export const TrashImage = () => {
+    const token = Cookies.get("access-token");
     const [trashImage, setTrashImage] = useState([])
     useEffect(() => {
-        trashImageApi()
+        trashImageApi(token)
             .then((res) => {
                 setTrashImage(res.data)
             })
             .catch((err) => {
                 console.log(err);
             })
-    }, [])
+    }, [token])
 
     const handleDelete=(id)=>{
         const updateImage=trashImage.filter((item)=>item._id !==id)
         setTrashImage(updateImage)
         deleteUploadImageApi(id,3)
         .then((res)=>{
-            console.log(res);
+            toast.success("Delete image successfully")
         })
         .catch((error)=>{
             console.log(error);
@@ -34,7 +37,7 @@ export const TrashImage = () => {
         setTrashImage(updateImage)
         deleteUploadImageApi(id,2)
         .then((res)=>{
-            console.log(res);
+            toast.success("Recover image successfully")
         })
         .catch((error)=>{
             console.log(error);

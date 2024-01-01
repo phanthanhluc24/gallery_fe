@@ -1,32 +1,34 @@
-import React, { useRef, useState } from 'react'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpFromBracket, faCopy, faTrash } from "@fortawesome/free-solid-svg-icons";
-import "../../assets/css/uploadImage.css"
-import Cookies from 'js-cookie';
-import { uploadImageApi } from '../../apis/uploadImage.api';
-import { useEffect } from 'react';
-import { imagesApi } from '../../apis/images.api';
-import { URL_API } from '../../helpers/URL_API';
+import React, { useEffect, useRef, useState } from 'react'
+import { useParams,useNavigate } from 'react-router-dom';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from 'react-contextmenu';
 import { CopyToClipboard } from "react-copy-to-clipboard"
-import { deleteUploadImageApi } from '../../apis/deleteUploadImage.api';
+import { faArrowLeft, faArrowUpFromBracket, faCopy, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Cookies from 'js-cookie';
+import { uploadImageAlbumApi } from '../../apis/uploadImageAlbum.api';
+import {deleteUploadImageApi} from "../../apis/deleteUploadImage.api"
+import { imageAlbumApi } from '../../apis/imageAlbum.api';
 import { toast } from "react-toastify"
-export const UploadImage = () => {
-    const token = Cookies.get("access-token");
+import { URL_API } from '../../helpers/URL_API';
+export const ImageOfFolder = () => {
+    const { id } = useParams()
+    const {folder}=useParams()  
     const fileInputRef = useRef()
     const [gallery, setGallery] = useState([])
     const [link, setLink] = useState("")
+    const token = Cookies.get("access-token");
+    const navigate=useNavigate()
     const handleIconClick = (e) => {
         fileInputRef.current.click()
     }
     const handleImageChange = (e) => {
         const file = e.target.files[0]
         if (file) {
-            uploadImageApi(token, file)
+            uploadImageAlbumApi(token, file,id)
                 .then((res) => {
                     if (res.status == 200) {
                         toast.success(res.message)
-                        return imagesApi(token)
+                        return imageAlbumApi(id,token)
                     }
                 })
                 .then((res) => {
@@ -37,15 +39,6 @@ export const UploadImage = () => {
                 })
         }
     }
-    useEffect(() => {
-        imagesApi(token)
-            .then((res) => {
-                setGallery(res.data)
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }, [token])
     const handleCopyLink = (item) => {
         setLink(item)
     }
@@ -60,12 +53,26 @@ export const UploadImage = () => {
                 console.log(error);
             })
     }
-
+    useEffect(() => {
+        imageAlbumApi(id,token)
+            .then((res) => {
+                setGallery(res.data)
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }, [token])
     return (
         <>
+            <div className='turn-back-page'>
+                <FontAwesomeIcon icon={faArrowLeft } onClick={()=>navigate(-1)}/>
+                <p>Album/<span>{folder}</span></p>
+            </div>
+          
             <div className="container">
                 <div className="row">
-                    {gallery.map((item, index) => (
+                    {gallery[0]!=null && gallery.map((item, index) => (
                         <div className="col-md-4" key={index}>
                             <ContextMenuTrigger id={`image-context-menu-${index}`}>
                                 <span>{item.image_name.split("-")[1]}</span>
