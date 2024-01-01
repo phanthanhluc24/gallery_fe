@@ -37,7 +37,7 @@ export const Login = () => {
                     </div>
                     <div className="remember-forgot">
                         <label><input type="checkbox" />Remember Me</label>
-                        <Link to="/auth/forgot-password">Forgot Password</Link>
+                        <Link to="/forgot-password">Forgot Password</Link>
                     </div>
                     <button type="submit" className="btn-login">Login</button>
                     <div className="register-link">

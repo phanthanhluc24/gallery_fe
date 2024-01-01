@@ -5,6 +5,8 @@ import { Home } from '../components/home/Home'
 import { UploadImage } from '../components/home/UploadImage'
 import { TrashImage } from '../components/home/TrashImage'
 import { AlbumImage } from '../components/home/AlbumImage'
+import { ImageOfFolder } from '../components/home/ImageOfFolder'
+import { ForgotPassword } from '../components/auth/ForgotPassword'
 
 export const Index = () => [
     {
@@ -27,8 +29,14 @@ export const Index = () => [
                 element:<TrashImage/>
             },{
                 path:"album",
-                element:<AlbumImage/>
+                element:<AlbumImage/>,
+            },{
+                path:"album/:folder/:id",
+                element:<ImageOfFolder/>
             }
         ]
+    },{
+        path:"/forgot-password",
+        element:<ForgotPassword/>
     }
 ]

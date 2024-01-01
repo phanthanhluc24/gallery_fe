@@ -8,6 +8,7 @@ export const currentUserApi =async (token) => {
   }
   const response=await axiosJWT.get(URL_API+"/auth/currentUser",{
     headers:{
+      "Content-Type":"application/json",
         ...headers
     }
   })
