@@ -7,6 +7,7 @@ import { TrashImage } from '../components/home/TrashImage'
 import { AlbumImage } from '../components/home/AlbumImage'
 import { ImageOfFolder } from '../components/home/ImageOfFolder'
 import { ForgotPassword } from '../components/auth/ForgotPassword'
+import { ResetPassword } from '../components/auth/ResetPassword'
 
 export const Index = () => [
     {
@@ -38,5 +39,8 @@ export const Index = () => [
     },{
         path:"/forgot-password",
         element:<ForgotPassword/>
+    },{
+        path:"/reset-new-password/:token",
+        element:<ResetPassword/>
     }
 ]
