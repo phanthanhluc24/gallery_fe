@@ -38,14 +38,14 @@ export const UploadImage = () => {
         }
     }
     useEffect(() => {
-        imagesApi(token)
+        imagesApi()
             .then((res) => {
                 setGallery(res.data)
             })
             .catch((err) => {
                 console.log(err);
             })
-    }, [token])
+    }, [])
     const handleCopyLink = (item) => {
         setLink(item)
     }
