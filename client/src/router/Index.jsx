@@ -8,6 +8,8 @@ import { AlbumImage } from '../components/home/AlbumImage'
 import { ImageOfFolder } from '../components/home/ImageOfFolder'
 import { ForgotPassword } from '../components/auth/ForgotPassword'
 import { ResetPassword } from '../components/auth/ResetPassword'
+import { AlbumShare } from '../components/home/AlbumShare'
+import { ImageOfAlbumShare } from '../components/home/ImageOfAlbumShare'
 
 export const Index = () => [
     {
@@ -34,6 +36,13 @@ export const Index = () => [
             },{
                 path:"album/:folder/:id",
                 element:<ImageOfFolder/>
+            },
+            {
+                path:"share-album",
+                element:<AlbumShare/>
+            },{
+                path:"share-album/:folder/:id",
+                element:<ImageOfAlbumShare/>
             }
         ]
     },{

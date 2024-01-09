@@ -31,14 +31,9 @@ axiosJWT.interceptors.response.use(
         if (error.response.status===401 && !originalRequest._retry) {
             originalRequest._retry=true
             try {
-                await refreshTokenApi()
-                .then((res)=>{
-                    originalRequest.headers["Authorization"]=`Bearer ${res.newAccessToken}`
-                    console.log("refreshToken successfully");
-                })
-                .catch((error)=>{
-                    console.error(error);
-                })
+                const res= await refreshTokenApi()
+                originalRequest.headers["Authorization"]=`Bearer ${res.newAccessToken}`
+                console.log("refreshToken successfully",res);
                 return axiosJWT(originalRequest)
             } catch (error) {
                 console.error("Error refresh token: ",error);

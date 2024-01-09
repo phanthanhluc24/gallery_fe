@@ -12,14 +12,14 @@ export const Header = () => {
     const [fullName,setFullName]=useState("")
     const navigate=useNavigate()
     useEffect(()=>{
-        currentUserApi(token)
+        currentUserApi()
         .then((res)=>{
             setFullName(res.name)
         })
         .catch((error)=>{
             console.log(error);
         })
-    },[token])
+    },[])
 
     const handleLogout=()=>{
        logoutApi(token)
